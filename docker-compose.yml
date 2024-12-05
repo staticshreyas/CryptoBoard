@@ -1,0 +1,61 @@
+version: "3.8"
+
+services:
+  mongo:
+    image: mongo
+    container_name: mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+
+  api-gateway:
+    build:
+      context: .
+      dockerfile: ./api-gateway/Dockerfile
+    container_name: api-gateway
+    ports:
+      - "3000:3000"
+    depends_on:
+      - mongo
+      - data-processing
+    environment:
+      - NODE_ENV=development
+
+  data-processing:
+    build:
+      context: .
+      dockerfile: ./data-processing-service/Dockerfile
+    container_name: data-processing
+    ports:
+      - "5001:5001"
+    depends_on:
+      - mongo
+    environment:
+      - NODE_ENV=development
+
+  data-collection:
+    build:
+      context: .
+      dockerfile: ./data-collection-services/Dockerfile
+    container_name: data-collection
+    depends_on:
+      - mongo
+    environment:
+      - NODE_ENV=development
+
+  frontend:
+    build:
+      context: .
+      dockerfile: ./frontend/Dockerfile
+    container_name: frontend
+    ports:
+      - "3001:3001"
+    depends_on:
+      - api-gateway
+    environment:
+      - NODE_ENV=development
+      - PORT=3001
+
+volumes:
+  mongo_data:

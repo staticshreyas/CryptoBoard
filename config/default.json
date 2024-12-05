@@ -1,0 +1,10 @@
+{
+    "jwtSecret": "your_jwt_secret_key",
+    "apiGatewayPort": 3000,
+    "newsApiKey": "041f9c66ca1b4259a63323c850fe9582",
+    "dataProcessingServicePort": 5001,
+    "mongoURI": "mongodb://mongo:27017/cryptoboard",
+    "twitterBearerToken": "AAAAAAAAAAAAAAAAAAAAAGtlxQEAAAAARYOVOiKSkuqEcU9k8QoxPRHDHu8%3D9XtcjB5Z1P2cE4kTUaoFnI9xg5GieqogLAHkbf8HL7vr5IJeyl",
+    "finnhubApiKey": "mongodb+srv://vsunderr:MnbURTWU9p!a3@r@dbcluster.rigo6zf.mongodb.net/?retryWrites=true&w=majority&appName=DBCluster"
+  }
+  
