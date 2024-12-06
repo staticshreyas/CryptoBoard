@@ -1,23 +1,3 @@
-// import axios from 'axios';
-
-// class APIService {
-//   static async getData(endpoint, token) {
-//     const response = await axios.get(`/api/v1/data${endpoint}`, {
-//       headers: { Authorization: token },
-//     });
-//     return response.data;
-//   }
-
-//   static async postData(endpoint, data, token) {
-//     const response = await axios.post(`/api/v1/data${endpoint}`, data, {
-//       headers: { Authorization: token },
-//     });
-//     return response.data;
-//   }
-// }
-
-// export default APIService;
-
 import axios from 'axios';
 
 const APIService = {

@@ -12,6 +12,7 @@ const app = express();
 mongoose.connect(config.get('mongoURI'), {
   useNewUrlParser: true,
   useUnifiedTopology: true,
+  dbName: 'CryptoBoard'
 });
 
 // Middlewares
@@ -21,7 +22,6 @@ app.use(express.json());
 app.use('/articles', authenticate, require('./routes/articles'));
 app.use('/posts', authenticate, require('./routes/posts'));
 app.use('/metrics', authenticate, require('./routes/metrics'));
-app.use('/alerts', authenticate, require('./routes/alerts'));
 
 // Start Server
 const PORT = config.get('dataProcessingServicePort') || 5001;

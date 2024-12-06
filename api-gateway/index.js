@@ -1,7 +1,7 @@
 // index.js
 
 const express = require('express');
-const mongoose = require('mongoose'); // Add this line
+const mongoose = require('mongoose');
 const morgan = require('morgan');
 const rateLimit = require('express-rate-limit');
 const proxy = require('express-http-proxy');
@@ -15,6 +15,7 @@ const app = express();
 mongoose.connect(config.get('mongoURI'), {
   useNewUrlParser: true,
   useUnifiedTopology: true,
+  dbName: 'CryptoBoard'
 });
 
 mongoose.connection.on('connected', () => {

@@ -6,6 +6,7 @@ const connectDB = async () => {
     await mongoose.connect(config.get('mongoURI'), {
       useNewUrlParser: true,
       useUnifiedTopology: true,
+      dbName: 'CryptoBoard'
     });
     console.log('Data Processing Service connected to MongoDB');
   } catch (err) {
